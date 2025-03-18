@@ -32,6 +32,12 @@ const SearchIcon = () => (
   </svg>
 );
 
+const MoonIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 16 16">
+    <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792 0 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/>
+  </svg>
+);
+
 // Get icon component
 const getIconComponent = (iconType) => {
   switch (iconType) {
@@ -52,15 +58,19 @@ const getIconComponent = (iconType) => {
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
       console.log(`Searching for: ${searchTerm}`);
-      // Here you would typically handle the search action
-      // For example, calling an API to search for weather by city
       alert(`Searching for weather in: ${searchTerm}`);
     }
+  };
+
+  const toggleTheme = () => {
+    setIsDarkTheme(prev => !prev);
+    document.body.classList.toggle('dark-theme');
   };
 
   return (
@@ -83,9 +93,7 @@ const Navbar = () => {
       </form>
       <div className="nav-buttons">
         <button className="get-app-btn">Get the App</button>
-        <div className="theme-toggle">
-          <div className="toggle-circle"></div>
-        </div>
+        <ThemeToggle isDark={isDarkTheme} toggleTheme={toggleTheme} />
       </div>
     </div>
   );
@@ -105,8 +113,8 @@ const TimeDisplay = () => {
       });
     };
     
-    updateTime(); // Run immediately
-    const interval = setInterval(updateTime, 1000); // Update every second
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
     
     return () => clearInterval(interval);
   }, []);
@@ -174,9 +182,18 @@ const GridOverlay = ({ show }) => {
 
 const toggleGrid = () => setShowGrid(prev => !prev);
 
+const ThemeToggle = ({ isDark, toggleTheme }) => (
+  <div className="theme-toggle" onClick={toggleTheme}>
+    <div className={`toggle-circle ${isDark ? 'dark' : ''}`}>
+      {isDark && <MoonIcon />}
+    </div>
+  </div>
+);
+
 const App = () => {
   const [date, setDate] = useState('');
   const [showGrid, setShowGrid] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
   
   useEffect(() => {
     const updateDate = () => {
@@ -189,6 +206,18 @@ const App = () => {
     
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (isDarkTheme) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+  }, [isDarkTheme]);
+
+  const toggleTheme = () => {
+    setIsDarkTheme(prev => !prev);
+  };
 
   const weatherForecast = [
     { day: 'Today', temp: '20°C', condition: 'Clear' },

@@ -12,6 +12,15 @@
   --border-radius-circle: 50%;
 }
 
+:root.dark-theme, body.dark-theme {
+  --primary-color: #fff;
+  --accent-color: #FF6200;
+  --grey-color: #9B9B9B;
+  --white-color: #1A1A1A;
+  --search-bg: #333;
+  --icon-color: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -256,7 +265,64 @@ body {
   border-radius: var(--border-radius-circle);
   top: 8px;
   left: 8px;
-  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease, background-color 0.3s ease;
+}
+
+.toggle-circle.dark {
+  transform: translateX(80px);
+  background-color: #1A1A1A;
+}
+
+/* Dark theme */
+
+body.dark-theme .grid-overlay .grid-column {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body, .search-bar, .time-unit, .separator, .forecast-day, .temp, .detail-item {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-theme {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+}
+
+body.dark-theme .search-bar {
+  background-color: var(--search-bg);
+}
+
+body.dark-theme .search-bar input::placeholder {
+  color: #9B9B9B;
+}
+
+body.dark-theme .search-bar input {
+  color: var(--primary-color);
+}
+
+body.dark-theme .forecast-day {
+  border-color: var(--grey-color);
+}
+
+body.dark-theme .forecast-day:first-child {
+  border: 1px solid var(--primary-color);
+}
+
+body.dark-theme .divider {
+  background-color: var(--grey-color);
+}
+
+body.dark-theme svg {
+  fill: var(--primary-color);
+}
+
+body.dark-theme .search-button svg {
+  fill: #9B9B9B;
 }
 
 /* Clock section */
