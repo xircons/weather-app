@@ -14,7 +14,7 @@ const WindIcon = () => (
 );
 
 const HumidityIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="#1A1A1A" class="bi bi-water" viewBox="0 0 16 16">
+  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="#1A1A1A" className="bi bi-water" viewBox="0 0 16 16">
   <path d="M.036 3.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 3.964a.5.5 0 0 1-.278-.65m0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 6.964a.5.5 0 0 1-.278-.65m0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 9.964a.5.5 0 0 1-.278-.65m0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65"/>
 </svg>
 );
@@ -23,6 +23,12 @@ const VisibilityIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="#1A1A1A" viewBox="0 0 16 16">
     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+  </svg>
+);
+
+const SearchIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#A0A0A0" viewBox="0 0 16 16">
+    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
   </svg>
 );
 
@@ -42,32 +48,79 @@ const getIconComponent = (iconType) => {
   }
 };
 
-// Component for the navigation bar
-const Navbar = () => (
-  <div className="navbar col-12">
-    <div className="logo">
-      <div className="logo-circle"></div>
-    </div>
-    <div className="search-bar"></div>
-    <div className="nav-buttons">
-      <button className="get-app-btn">Get the App</button>
-      <div className="theme-toggle">
-        <div className="toggle-circle"></div>
+// Component for the navigation bar with functional search bar
+const Navbar = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      console.log(`Searching for: ${searchTerm}`);
+      // Here you would typically handle the search action
+      // For example, calling an API to search for weather by city
+      alert(`Searching for weather in: ${searchTerm}`);
+    }
+  };
+
+  return (
+    <div className="navbar col-12">
+      <div className="logo">
+        <div className="logo-circle"></div>
+      </div>
+      <form className={`search-bar ${isSearchFocused ? 'focused' : ''}`} onSubmit={handleSearch}>
+        <input
+          type="text"
+          placeholder="Search for a city..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onFocus={() => setIsSearchFocused(true)}
+          onBlur={() => setIsSearchFocused(false)}
+        />
+        <button type="submit" className="search-button">
+          <SearchIcon />
+        </button>
+      </form>
+      <div className="nav-buttons">
+        <button className="get-app-btn">Get the App</button>
+        <div className="theme-toggle">
+          <div className="toggle-circle"></div>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Component for the time display
-const TimeDisplay = () => (
-  <div className="time-display">
-    <span className="time-unit">09</span>
-    <span className="separator">:</span>
-    <span className="time-unit">50</span>
-    <span className="separator">:</span>
-    <span className="time-unit">00</span>
-  </div>
-);
+const TimeDisplay = () => {
+  const [time, setTime] = useState({ hours: '00', minutes: '00', seconds: '00' });
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTime({
+        hours: String(now.getHours()).padStart(2, '0'),
+        minutes: String(now.getMinutes()).padStart(2, '0'),
+        seconds: String(now.getSeconds()).padStart(2, '0')
+      });
+    };
+    
+    updateTime(); // Run immediately
+    const interval = setInterval(updateTime, 1000); // Update every second
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="time-display">
+      <span className="time-unit">{time.hours}</span>
+      <span className="separator">:</span>
+      <span className="time-unit">{time.minutes}</span>
+      <span className="separator">:</span>
+      <span className="time-unit">{time.seconds}</span>
+    </div>
+  );
+};
 
 // Component for the clock section
 const ClockSection = ({ date }) => (
@@ -102,20 +155,24 @@ const ForecastDay = ({ day, temp, condition }) => (
   </div>
 );
 
-// Component for the grid overlay
+// Component for the grid overlay with animation
 const GridOverlay = ({ show }) => {
-  if (!show) return null;
-  
   return (
-    <div className="grid-overlay">
+    <div className={`grid-overlay ${show ? 'show' : 'hide'}`} key={show ? 'show' : 'hide'}>
       <div className="grid-overlay-inner">
         {[...Array(12)].map((_, index) => (
-          <div key={index} className="grid-column"></div>
+          <div 
+            key={index} 
+            className="grid-column animated-column" 
+            style={{ animationDelay: `${index * 0.1}s` }}
+          ></div>
         ))}
       </div>
     </div>
   );
 };
+
+const toggleGrid = () => setShowGrid(prev => !prev);
 
 const App = () => {
   const [date, setDate] = useState('');
@@ -156,7 +213,8 @@ const App = () => {
       <GridOverlay show={showGrid} />
       
       <button className="grid-toggle" onClick={toggleGrid}>
-        {showGrid ? "×" : "#"}
+        <span className={`icon-close ${showGrid ? 'visible' : 'hidden'}`}>×</span>
+        <span className={`icon-grid ${showGrid ? 'hidden' : 'visible'}`}>#</span>
       </button>
 
       <div className="app-container grid-container">
